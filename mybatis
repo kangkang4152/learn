@@ -1,13 +1,6 @@
-package com.huawei.it.jalor5.core.base;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.huawei.it.jalor5.core.log.ILogger;
-import com.huawei.it.jalor5.core.log.JalorLoggerFactory;
-import com.huawei.it.jalor5.core.util.CollectionUtil;
-import com.huawei.it.jalor5.core.util.JsonUtil;
-import com.huawei.it.jalor5.core.util.PatternUtil;
-import com.huawei.it.jalor5.core.util.StringUtil;
 
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -210,8 +203,6 @@ public final class PageVO implements Serializable{
 }
 
 
-package com.huawei.it.jalor5.core.base;
-
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -223,12 +214,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.huawei.it.jalor5.core.log.ILogger;
-import com.huawei.it.jalor5.core.log.JalorLoggerFactory;
-import com.huawei.it.jalor5.core.util.CollectionUtil;
-import com.huawei.it.jalor5.core.util.JsonUtil;
-import com.huawei.it.jalor5.core.util.PatternUtil;
-import com.huawei.it.jalor5.core.util.StringUtil;
+
 /**
  * 分页VO
  * @author l54883
@@ -508,8 +494,6 @@ public final class DbPageBean implements Serializable{
 }
 
 
-package com.huawei.it.jalor5.core.base;
-
 import java.io.Serializable;
 import java.util.List;
 
@@ -570,9 +554,6 @@ public class PagedResult<T> implements Serializable {
 }
 
 
-
-package com.huawei.it.jalor5.core.orm;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -594,11 +575,6 @@ import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
 
-import com.huawei.it.jalor5.core.base.DbPageBean;
-import com.huawei.it.jalor5.core.base.PageVO;
-import com.huawei.it.jalor5.core.base.PagedResult;
-import com.huawei.it.jalor5.core.log.ILogger;
-import com.huawei.it.jalor5.core.log.JalorLoggerFactory;
 import org.springframework.util.Assert;
 
 /**
