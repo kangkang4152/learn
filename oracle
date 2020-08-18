@@ -110,22 +110,22 @@ select * from t_userserviceinfo a where a.userservid > 1
 select userservid from t_userserviceinfo a where a.createtime = sysdate
  
 归纳下，索引范围扫描的使用场景如下表所示，其中username列有非唯一索引，phonenumber列上有唯一索引，userid和servicetype上有主键（组合索引）。
- 	场景	查询条件举例	说明
+ 				场景	           查询条件举例	          说明
 可以使用索引范围扫描场景	对非唯一索引的等值查询	username =’abc’	 
-	对非唯一索引的范围查询	username >’abc’	 
-	对非唯一索引的模糊查询	username like ’abc%’	必须是前匹配，如果是全模糊，则无法使用索引范围扫描
-	对唯一索引的范围查询	phonenumber>’123’	 
-	对唯一索引的模糊查询	phonenumber like ’123%’	必须是前匹配
-	对唯一索引使用前导列查询	userid=123	userid是组合索引的第一个列
-不可以使用索引范围扫描场景	非前匹配的模糊查询	username like ’%abc’
-username like ’%abc%’	 
-	查询列上有表达式	username || ‘’ = ’abc’
-userid +0=123
-to_number(phonenumber)= 123	 
-	查询列上有隐式转换	phonenumber=123	等价于to_number(phonenumber)= 123
-	查询空值	phonenumber is null	 
-	使用组合索引但未使用前导列	servicetype=1	userid和servicetype上有索引
-	使用不等于	userid<>123	 
+	                  对非唯一索引的范围查询	  username >’abc’	 
+			  对非唯一索引的模糊查询	  username like ’abc%’	       必须是前匹配，如果是全模糊，则无法使用索引范围扫描
+			  对唯一索引的范围查询	   phonenumber>’123’	 
+			  对唯一索引的模糊查询	   phonenumber like ’123%’	必须是前匹配
+			  对唯一索引使用前导列查询	 userid=123	               userid是组合索引的第一个列
+不可以使用索引范围扫描场景  非前匹配的模糊查询	 username like ’%abc’
+						   username like ’%abc%’	 
+			  查询列上有表达式	    username || ‘’ = ’abc’
+						   userid +0=123
+						   to_number(phonenumber)= 123	 
+			  查询列上有隐式转换	    phonenumber=123	等价于to_number(phonenumber)= 123
+			  查询空值	                 phonenumber is null	 
+			  使用组合索引但未使用前导列	servicetype=1	userid和servicetype上有索引
+			  使用不等于                userid<>123	 
 
 2.1.5 索引全扫描（INDEX FULL SCAN）
 索引全扫描一般会扫描所有叶子节点。它从第一个叶子节点开始扫描，通过叶子节点的链接依次访问每一个叶子节点。
