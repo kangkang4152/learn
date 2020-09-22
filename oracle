@@ -29,6 +29,13 @@ Oracle | 创建触发器：
   before：能够防止某些错误操作发生而便于回滚或实现某些业务规则，适用于实现自增字段；
   after：在DML等操作发生之后发生，这种方式便于记录该操作或做某些事后处理信息；
 
+遇到插入数据的外键问题
+--关闭所有外键
+SELECT 'alter table  '|| t.table_name  || ' disable constraint ' || t.CONSTRAINT_NAME || ';'
+FROM USER_CONSTRAINTS t WHERE t.CONSTRAINT_TYPE = 'R'; 
+--开启所有外键
+SELECT 'alter table  '|| t.table_name || ' enable constraint ' || t.CONSTRAINT_NAME || ';' 
+FROM USER_CONSTRAINTS t WHERE t.CONSTRAINT_TYPE = 'R';
 
 
 1 oracle之索引篇
