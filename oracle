@@ -163,7 +163,3 @@ select /*+ index_join(a pk_t_fulltonelib ,ix_fulltonelib_spid ) */
 a.toneid, a.spid from t_fulltonelib a;
  
 
-参考文档
-http://3ms.huawei.com/hi/group/2898913/wiki_4882469.html
-http://3ms.huawei.com/km/blogs/details/1646819
-http://3ms.huawei.com/km/blogs/details/1309643
